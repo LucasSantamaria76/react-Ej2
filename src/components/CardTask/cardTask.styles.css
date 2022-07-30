@@ -23,6 +23,17 @@ h3 {
   align-items: center;
 }
 
+.card button {
+  margin: 0;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px #000;
+}
+
 .card .btnEdit {
   background-color: var(--warning-color);
   margin-right: 5px;
@@ -40,10 +51,5 @@ h3 {
   }
   h3 {
     font-size: 1.5rem;
-  }
-  .card button {
-    margin: 0;
-    width: 50px;
-    height: 50px;
   }
 }

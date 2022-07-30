@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { addTask, deleteTask, editTask } from '../../store/actions';
 import { useToDo } from '../../store/contextToDo';
-import './formTask.styles.css';
+import './formTask.styles.js';
 import Swal from 'sweetalert2';
+import { Form } from './formTask.styles.js';
 
 const FormTask = () => {
   const [task, setTask] = useState('');
@@ -24,7 +25,6 @@ const FormTask = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (task.trim().length) {
-      localStorage.setItem('tasks', JSON.stringify(state.tasks));
       dispatch(addTask(task, taskToEdit));
       setTaskToEdit('');
       setTask('');
@@ -43,7 +43,6 @@ const FormTask = () => {
       confirmButtonText: 'Aceptar',
     }).then((result) => {
       if (result.isConfirmed) {
-        localStorage.setItem('tasks', JSON.stringify(state.tasks));
         dispatch(deleteTask(null, true));
       }
     });
@@ -51,8 +50,8 @@ const FormTask = () => {
 
   return (
     <>
-      <h1 className='title'>{taskToEdit ? 'Editar Tarea' : 'Nueva tarea'}</h1>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
+        <h1>{taskToEdit ? 'Editar Tarea' : 'Nueva tarea'}</h1>
         <input
           type='text'
           className={`${error ? 'inputError' : ''}`}
@@ -67,7 +66,7 @@ const FormTask = () => {
         <button type='button' className='btnDelTask' onClick={() => handleDelete()}>
           Eliminar lista de tareas
         </button>
-      </form>
+      </Form>
     </>
   );
 };

@@ -29,7 +29,10 @@ export const NavContainer = styled.nav`
       svg {
         width: 25px;
         height: 25px;
-        fill: #00ff00;
+        fill: #e74c3c;
+      }
+      .tasksIcon {
+        fill: ${({ hasTasks }) => hasTasks && '#00ff00'};
       }
     }
   }

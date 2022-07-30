@@ -29,12 +29,20 @@ export const reducerTodo = (state = initialState, action) => {
       } else {
         newState = { ...state, tasks: [action.payload, ...state.tasks] };
       }
+      localStorage.setItem('tasks', JSON.stringify(newState.tasks));
       return newState;
     }
-    case Types.DELETE_TASK:
+    case Types.DELETE_TASK: {
+      localStorage.setItem(
+        'tasks',
+        JSON.stringify(state.tasks.filter((task) => task.id !== action.payload))
+      );
       return { ...state, tasks: state.tasks.filter((task) => task.id !== action.payload) };
-    case Types.DELETE_TODO:
+    }
+    case Types.DELETE_TODO: {
+      localStorage.removeItem('tasks');
       return initialState;
+    }
     case Types.EDIT_TASK:
       return { ...state, toEdit: action.payload };
 
