@@ -1,0 +1,49 @@
+.card {
+  width: 98%;
+  margin-top: 20px;
+  border: 1px solid #000;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 5px;
+}
+
+h3 {
+  margin: 5px;
+  color: #000;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.btnGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card .btnEdit {
+  background-color: var(--warning-color);
+  margin-right: 5px;
+}
+
+.btnDelete {
+  background-color: var(--danger-color);
+}
+
+@media screen and (min-width: 600px) {
+  .card {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  .card button {
+    margin: 0;
+    width: 50px;
+    height: 50px;
+  }
+}

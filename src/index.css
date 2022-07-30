@@ -1,0 +1,24 @@
+:root {
+  --primary-color: #15596e;
+  --danger-color: #f44336;
+  --warning-color: #ff9800;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #333;
+  background: #fafafa;
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
