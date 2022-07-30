@@ -18,7 +18,7 @@ export const addTask = (title, id = '') => ({
 
 export const getTasks = () => ({
   type: Types.GET_TASKS,
-  payload: [...localStorage.getItem('tasks')],
+  payload: localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [],
 });
 
 export const deleteTask = (id, all = false) => ({

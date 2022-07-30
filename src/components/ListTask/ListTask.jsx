@@ -1,16 +1,16 @@
 import { useToDo } from '../../store/contextToDo';
 import CardTask from '../CardTask/CardTask';
-import './listTask.styles.css';
+import { ListTaskContainer } from './listTask.styles';
 
 const ListTask = () => {
   const { state } = useToDo();
 
   return (
-    <div className='list'>
+    <ListTaskContainer>
       {state.tasks.map((task) => (
         <CardTask key={task.id} task={task} />
       ))}
-    </div>
+    </ListTaskContainer>
   );
 };
 

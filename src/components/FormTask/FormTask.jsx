@@ -24,8 +24,8 @@ const FormTask = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (task.trim().length) {
-      dispatch(addTask(task, taskToEdit));
       localStorage.setItem('tasks', JSON.stringify(state.tasks));
+      dispatch(addTask(task, taskToEdit));
       setTaskToEdit('');
       setTask('');
       inputRef.current.focus();
@@ -43,8 +43,8 @@ const FormTask = () => {
       confirmButtonText: 'Aceptar',
     }).then((result) => {
       if (result.isConfirmed) {
-        dispatch(deleteTask(null, true));
         localStorage.setItem('tasks', JSON.stringify(state.tasks));
+        dispatch(deleteTask(null, true));
       }
     });
   };

@@ -7,6 +7,12 @@ export const initialState = {
 
 export const reducerTodo = (state = initialState, action) => {
   switch (action.type) {
+    case Types.GET_TASKS: {
+      return {
+        toEdit: '',
+        tasks: action.payload,
+      };
+    }
     case Types.ADD_TASK: {
       let newState;
       const existingTask = state.tasks.find((task) => task.id === action.payload.id);
