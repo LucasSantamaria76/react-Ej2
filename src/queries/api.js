@@ -1,8 +1,12 @@
 const URL = 'https://pokeapi.co/api/v2/pokemon/';
 
-export const getPokemon = async ({ queryKey }) => {
-  const res = await fetch(`${URL}${queryKey[1]}`);
-  return res.json();
+export const getPokemon = async (name) => {
+  try {
+    const res = await fetch(`${URL}${name}`);
+    return res.json();
+  } catch (error) {
+    console.log('error', error);
+  }
 };
 
 export const getPokemons = async ({ queryKey }) => {

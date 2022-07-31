@@ -1,18 +1,14 @@
 import { useEffect, useState } from 'react';
 import { CardPokemonStyled } from './listPokemons.styles';
+import { getPokemon } from './../../queries/api';
 
-const CardPokemon = ({ url }) => {
+const CardPokemon = ({ name }) => {
   const [pokemon, setPokemon] = useState({});
 
-  const getDataPokemon = async (url) => {
-    const res = await fetch(url);
-    const data = await res.json();
-    setPokemon(data);
-  };
-
   useEffect(() => {
-    getDataPokemon(url);
-  }, [url]);
+    name && getPokemon(name).then((data) => setPokemon(data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <CardPokemonStyled>

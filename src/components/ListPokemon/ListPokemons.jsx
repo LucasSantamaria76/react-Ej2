@@ -5,6 +5,7 @@ import { useState } from 'react';
 import debounce from 'lodash.debounce';
 import CardPokemon from './CardPokemon';
 import { FcLeft, FcRight, FcUp } from 'react-icons/fc';
+import { getPokemon } from './../../queries/api';
 
 const ListPokemons = () => {
   const [search, setSearch] = useState('');
@@ -44,7 +45,7 @@ const ListPokemons = () => {
       />
       <CardContainer>
         {data?.results.map((pokemon) => (
-          <CardPokemon key={pokemon.name} url={pokemon.url} />
+          <CardPokemon key={pokemon?.name} name={pokemon?.name} />
         ))}
       </CardContainer>
       <ControlsContainer>
