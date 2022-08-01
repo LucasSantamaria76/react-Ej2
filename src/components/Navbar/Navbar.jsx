@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import { NavContainer } from './navbar.styles.js';
+import { NavContainer, PokeballIcon } from './navbar.styles.js';
 import { BiTask, BiTaskX } from 'react-icons/bi';
-import { MdCatchingPokemon } from 'react-icons/md';
 import { useToDo } from '../../store/contextToDo.jsx';
 import { useEffect } from 'react';
 import { getTasks } from '../../store/actions.js';
@@ -37,7 +36,11 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <MdCatchingPokemon />
+          <PokeballIcon
+            src={process.env.PUBLIC_URL + '/assets/Pokeball-PNG-Image-File.png'}
+            alt='pokeball'
+          />
+
           <NavLink to='/pokeapi' end>
             PokeApi
           </NavLink>

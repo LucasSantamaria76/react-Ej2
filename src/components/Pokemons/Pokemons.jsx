@@ -9,7 +9,7 @@ const ListPokemons = () => {
 
   const handleSearch = debounce((e) => {
     setSearch(e.target?.value?.toLowerCase());
-  }, 2000);
+  }, 1000);
 
   return (
     <Container>
@@ -20,7 +20,11 @@ const ListPokemons = () => {
         onChange={handleSearch}
         placeholder='Buscar Pokemon...'
       />
-      {search ? <PokemonDetail search={search} /> : <ListCardPokemon />}
+      {search ? (
+        <PokemonDetail search={search} setSearch={setSearch} />
+      ) : (
+        <ListCardPokemon setSearch={setSearch} />
+      )}
     </Container>
   );
 };

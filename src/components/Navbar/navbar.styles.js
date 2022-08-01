@@ -45,6 +45,7 @@ export const NavContainer = styled.nav`
     }
     &.active {
       font-weight: bold;
+      color: red;
     }
     &.active:hover {
       text-decoration: none;
@@ -55,4 +56,10 @@ export const NavContainer = styled.nav`
   @media (max-width: 768px) {
     justify-content: center;
   }
+`;
+
+export const PokeballIcon = styled.img`
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
 `;

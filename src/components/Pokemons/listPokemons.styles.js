@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FcUpLeft } from 'react-icons/fc';
 
 export const Container = styled.div`
   display: flex;
@@ -16,7 +17,7 @@ export const Container = styled.div`
 
 export const CardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   grid-gap: 20px;
   width: 100%;
   height: 600px;
@@ -100,5 +101,16 @@ export const DetailCard = styled.div`
     width: 200px;
     height: 200px;
     background-color: #fff;
+  }
+`;
+
+export const BackIcon = styled(FcUpLeft)`
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin: 20px;
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.5);
   }
 `;

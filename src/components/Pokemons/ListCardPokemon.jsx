@@ -5,15 +5,15 @@ import { useState } from 'react';
 import CardPokemon from './CardPokemon';
 import { FcLeft, FcRight, FcUp } from 'react-icons/fc';
 
-const ListCardPokemon = () => {
+const ListCardPokemon = ({ setSearch }) => {
   const [page, setPage] = useState(0);
-  const { data, error, isLoading } = useQuery(['pokemons', page], getPokemons);
+  const { data, error, isError, isLoading } = useQuery(['pokemons', page], getPokemons);
 
   if (isLoading) {
     return <p>CARGANDO...</p>;
   }
 
-  if (isLoading) {
+  if (isError) {
     return <p>{error}</p>;
   }
 
@@ -32,7 +32,7 @@ const ListCardPokemon = () => {
       {' '}
       <CardContainer>
         {data?.results.map((pokemon) => (
-          <CardPokemon key={pokemon?.name} name={pokemon?.name} />
+          <CardPokemon key={pokemon?.name} name={pokemon?.name} setSearch={setSearch} />
         ))}
       </CardContainer>
       <ControlsContainer>

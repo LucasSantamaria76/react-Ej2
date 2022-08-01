@@ -1,20 +1,26 @@
-import { useEffect, useState } from 'react';
 import { CardPokemonStyled } from './listPokemons.styles';
 import { getPokemon } from '../../queries/api';
-import PokemonDetail from './PokemonDetail';
+import { useQuery } from '@tanstack/react-query';
+//import PokemonDetail from './PokemonDetail';
 
-const CardPokemon = ({ name }) => {
-  const [pokemon, setPokemon] = useState({});
+const CardPokemon = ({ name, setSearch }) => {
+  const {
+    data: pokemon,
+    error,
+    isError,
+    isLoading,
+  } = useQuery(['pokemonDetails', name], getPokemon);
 
-  useEffect(() => {
-    name && getPokemon(name).then((data) => setPokemon(data));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  if (isLoading) {
+    return <p>CARGANDO...</p>;
+  }
 
-  const handleClick = () => <PokemonDetail search={pokemon?.name} />;
+  if (isError) {
+    return <p>{error}</p>;
+  }
 
   return (
-    <CardPokemonStyled onClick={handleClick}>
+    <CardPokemonStyled onClick={() => setSearch(pokemon?.name)}>
       <img src={pokemon?.sprites?.front_default} alt={pokemon.name} />
       <h4>{pokemon?.name}</h4>
     </CardPokemonStyled>
