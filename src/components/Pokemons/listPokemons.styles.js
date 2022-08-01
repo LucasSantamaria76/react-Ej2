@@ -16,10 +16,11 @@ export const Container = styled.div`
 
 export const CardContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 20px;
   width: 100%;
-  height: 100%;
+  height: 600px;
+  overflow-y: Auto;
   padding: 20px;
   background-color: #e67e22;
 `;
@@ -32,8 +33,10 @@ export const ControlsContainer = styled.div`
     width: 40px;
     height: 40px;
     cursor: pointer;
+    margin: 20px;
+    transition: transform 0.3s ease-in-out;
     &:hover {
-      transform: scale(1.2);
+      transform: scale(2);
     }
   }
 `;
@@ -55,7 +58,7 @@ export const InputStyled = styled.input`
   }
 `;
 
-export const CardPokemonStyled = styled.div`
+export const CardPokemonStyled = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,5 +70,35 @@ export const CardPokemonStyled = styled.div`
   cursor: pointer;
   h4 {
     text-transform: capitalize;
+  }
+`;
+
+export const DetailCard = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  width: 500px;
+  height: 200px;
+  margin-top: 30px;
+  border: 1px solid lightgrey;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #fad7a0;
+  overflow: hidden;
+  & div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  img {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
   }
 `;

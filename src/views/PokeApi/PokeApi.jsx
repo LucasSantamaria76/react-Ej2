@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import ListPokemons from '../../components/ListPokemon/ListPokemons';
+import Pokemons from '../../components/Pokemons/Pokemons';
 
 const PokeApi = () => {
   const queryClient = new QueryClient();
@@ -8,7 +8,7 @@ const PokeApi = () => {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <ListPokemons />
+        <Pokemons />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>
