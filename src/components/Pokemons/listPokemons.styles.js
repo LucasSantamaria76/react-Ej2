@@ -20,7 +20,7 @@ export const CardContainer = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   grid-gap: 20px;
   width: 100%;
-  height: 600px;
+  height: 70vh;
   overflow-y: Auto;
   padding: 20px;
   background-color: #e67e22;
@@ -60,6 +60,7 @@ export const InputStyled = styled.input`
 `;
 
 export const CardPokemonStyled = styled.button`
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,6 +70,10 @@ export const CardPokemonStyled = styled.button`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   background-color: #fad7a0;
   cursor: pointer;
+  img {
+    width: 130px;
+    height: 130px;
+  }
   h4 {
     text-transform: capitalize;
   }
@@ -80,7 +85,7 @@ export const DetailCard = styled.div`
   align-items: center;
   justify-content: start;
   width: 500px;
-  height: 200px;
+  height: 300px;
   margin-top: 30px;
   border: 1px solid lightgrey;
   border-radius: 15px;
@@ -89,18 +94,21 @@ export const DetailCard = styled.div`
   overflow: hidden;
   & div {
     width: 100%;
+    height: 300px;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
     justify-content: center;
+    background-color: #fff;
   }
   img {
     margin: 0;
     padding: 0;
-    width: 200px;
-    height: 200px;
-    background-color: #fff;
+    width: 280px;
+    height: 300px;
+
+    transform: translateX(60px);
   }
 `;
 

@@ -21,7 +21,14 @@ const CardPokemon = ({ name, setSearch }) => {
 
   return (
     <CardPokemonStyled onClick={() => setSearch(pokemon?.name)}>
-      <img src={pokemon?.sprites?.front_default} alt={pokemon.name} />
+      <img
+        src={
+          pokemon.sprites.other.home?.front_default ||
+          pokemon.sprites?.front_default ||
+          pokemon.sprites?.front_shiny
+        }
+        alt={pokemon.name}
+      />
       <h4>{pokemon?.name}</h4>
     </CardPokemonStyled>
   );
